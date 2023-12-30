@@ -133,7 +133,6 @@ window.onload = async ()=>{
                 currentWordElement.removeEventListener("keyup",onKeyup)
                 window.onload()
             }else {
-                console.log(currentWordElement.value)
                 onWordCompletion()
             }
         }
