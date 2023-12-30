@@ -110,7 +110,7 @@ window.onload = async ()=>{
                 // detect if finished
                 if(i >= pokemonArr.length) {
                     clearInterval(interval);
-                    updatePPM(ppmElement,i,startTime);o
+                    updatePPM(ppmElement,i,startTime);
                     currentWordElement.placeholder = "Press Enter";
                     finished = true;
                 }
