@@ -26,7 +26,7 @@ body {background-color:#202023;}
     background-color:#202023;
     color:#cccccc;
     height:2em;
-    border:1px solid #ff0000;
+    border:1px solid;
     width:35%;
 }
 #ppm {
