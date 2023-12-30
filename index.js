@@ -84,6 +84,31 @@ window.onload = async ()=>{
 
     let finished = false; 
     
+
+
+    function onWordCompletion() { 
+        let word = normalize(currentWordElement.value);
+
+        word = word.trimEnd();
+
+        if(currentPokemon.names.includes(word)) {
+            i++;
+            currentWordElement.value = "";
+            setWords(wordsElement,pokemonArr,i)
+            currentPokemon = pokemonArr[i];
+
+            // detect if finished
+            if(i >= pokemonArr.length) {
+                clearInterval(interval);
+                updatePPM(ppmElement,i,startTime);
+                currentWordElement.placeholder = "Press Enter";
+                finished = true;
+            }
+        }
+
+    }
+
+
     currentWordElement.oninput = (input)=>{
         if(finished) return;
         let newLetter = input.data
@@ -97,25 +122,7 @@ window.onload = async ()=>{
 
         let onLastWord = i+1 === pokemonArr.length
         if(onLastWord ||  newLetter == " ") {
-            let word = normalize(currentWordElement.value);
-
-            if(!onLastWord) word = word.slice(0,-1);
-
-            if(currentPokemon.names.includes(word)) {
-                i++;
-                currentWordElement.value = "";
-                setWords(wordsElement,pokemonArr,i)
-                currentPokemon = pokemonArr[i];
-
-                // detect if finished
-                if(i >= pokemonArr.length) {
-                    clearInterval(interval);
-                    updatePPM(ppmElement,i,startTime);
-                    currentWordElement.placeholder = "Press Enter";
-                    finished = true;
-                }
-            }
-
+            onWordCompletion()
         }
     }
     // reset when press enter
@@ -125,6 +132,9 @@ window.onload = async ()=>{
                 currentWordElement.oninput = undefined
                 currentWordElement.removeEventListener("keyup",onKeyup)
                 window.onload()
+            }else {
+                console.log(currentWordElement.value)
+                onWordCompletion()
             }
         }
     }
