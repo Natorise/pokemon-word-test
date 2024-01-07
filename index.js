@@ -134,6 +134,7 @@ window.onload = async ()=>{
                 window.onload()
             }else {
                 onWordCompletion()
+                currentWordElement.value = "";
             }
         }
     }
