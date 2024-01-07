@@ -126,18 +126,18 @@ window.onload = async ()=>{
         }
     }
     // reset when press enter
-    function onKeyup(e) {
+    function onKeydown(e) {
         if(e.key == "Enter") {
             if(finished) {
                 currentWordElement.oninput = undefined
-                currentWordElement.removeEventListener("keyup",onKeyup)
+                currentWordElement.removeEventListener("keydown",onKeydown)
                 window.onload()
             }else {
                 onWordCompletion()
             }
         }
     }
-    currentWordElement.addEventListener("keyup",onKeyup)
+    currentWordElement.addEventListener("keydown",onKeydown)
 
 
 
