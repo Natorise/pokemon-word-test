@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="index.js"></script>
+    <title>pokemon word test</title>
     <link rel="stylesheet" href="index.css">
 
-    <style></style>
 </head>
 <body>
-    <div class="main">
+    <div id="titlebar">
+
         <div id="ppm"></div>
-        <div id="words">
+        <div class="spacer"></div>
+        
+        <div class="selectorDiv">
+            Columns
+            <select class="selector" id="columnSelector"></select>
         </div>
-        <br>
-        <input id="currentWord" type="text">   
-    </div>
+        <div class="selectorDiv">
+            Rows
+            <select class="selector" id="rowSelector"></select>
+        </div>
+    </div> 
+    <div id="spawns"></div> 
+
+    <script src="index.js"></script>
 </body>
 </html>
