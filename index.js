@@ -58,7 +58,7 @@ function onKeydown(e) {
     const currentSpawnId = parseInt(pokemonInput.parentNode.parentNode.id);
 
     if(e.key ==="Enter") {
-        const answer = pokemonInput.value.trim();
+        const answer = pokemonInput.value.trim().toLowerCase().split(" ").filter(x=>!["<@716390085896962058>","@pokétwo#8236","catch","c"].includes(x)).join(" ");
         pokemonInput.value = "";
 
         const spawn = spawns[currentSpawnId]
