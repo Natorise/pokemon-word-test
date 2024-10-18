@@ -10,7 +10,7 @@ const namesMap = {
     "speed deoxys": "deoxys",
     "blue-striped basculin": "basculin",
     "pom-pom oricorio": "oricorio",
-    "pa'u oricorio": "oricorio",
+    "pau oricorio": "oricorio",
     "sensu oricorio": "oricorio",
     "rapid strike urshifu": "urshifu",
 }
