@@ -53,12 +53,18 @@ let interval;
 let startTime;
 let answered = 0;
 
+function filterPokemonInput(x) {
+    if(x.includes("@")) return false;
+    else if(["catch","c"].includes(x)) return false;
+    return true;
+}
+
 function onKeydown(e) {
     const pokemonInput = e.target
     const currentSpawnId = parseInt(pokemonInput.parentNode.parentNode.id);
 
     if(e.key ==="Enter") {
-        const answer = pokemonInput.value.trim().toLowerCase().split(" ").filter(x=>!["<@716390085896962058>","@pokétwo#8236","catch","c"].includes(x)).join(" ");
+        const answer = pokemonInput.value.trim().toLowerCase().split(" ").filter(filterPokemonInput).join(" ");
         pokemonInput.value = "";
 
         const spawn = spawns[currentSpawnId]
